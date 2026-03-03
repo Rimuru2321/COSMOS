@@ -149,21 +149,40 @@ nav {
   position: relative;
 }
 
+/* DROPDOWN MEJORADO (con scroll y mayor tamaño) */
 .dropdown-menu {
   position: absolute;
   top: 60px;
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
-  min-width: 160px;
+  transform: translateX(-50%);
+  min-width: 240px;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: rgba(5, 5, 32, 0.97);
   border: 1px solid rgba(108, 10, 239, 0.4);
   border-radius: 8px;
-  padding: 5px 0;
+  padding: 8px 0;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s;
   box-shadow: 0 10px 30px rgba(108, 10, 239, 0.4);
   z-index: 1001;
+  /* Personalizar barra de scroll */
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyan) var(--deep);
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-menu::-webkit-scrollbar-track {
+  background: var(--deep);
+  border-radius: 10px;
+}
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--cyan);
+  border-radius: 10px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -174,10 +193,10 @@ nav {
 
 .dropdown-menu a {
   display: block;
-  padding: 8px 16px;
+  padding: 6px 16px;
   color: var(--text);
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-align: center;
   border-left: 2px solid transparent;
   transition: 0.2s;
@@ -187,6 +206,21 @@ nav {
   color: var(--cyan);
   background: rgba(108, 10, 239, 0.15);
   border-left-color: var(--cyan);
+}
+
+/* Categorías dentro del dropdown */
+.dropdown-category {
+  color: var(--gold);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 16px 4px;
+  border-bottom: 1px solid rgba(255,215,0,0.2);
+  margin-top: 5px;
+}
+.dropdown-category:first-of-type {
+  margin-top: 0;
 }
 
 .nav-extra {
@@ -2739,17 +2773,24 @@ footer a:hover {
   .dropdown-menu {
     position: static;
     transform: none;
+    min-width: 100%;
+    max-height: 0;
+    overflow: hidden;
     opacity: 1;
     pointer-events: all;
     box-shadow: none;
     border: none;
     background: transparent;
-    max-height: 0;
-    overflow: hidden;
     transition: max-height 0.3s;
+    padding: 0;
   }
   .dropdown:hover .dropdown-menu {
-    max-height: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+  .dropdown-menu a {
+    padding: 8px;
+    font-size: 0.75rem;
   }
   .hamburger {
     display: block;

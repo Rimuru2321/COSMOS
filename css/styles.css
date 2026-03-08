@@ -2920,3 +2920,29 @@ footer a:hover {
     text-align: left;
   }
 }
+
+/* ===== ESTILOS PARA ANUNCIOS ===== */
+.ad-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px dashed var(--nebula1);
+  min-height: 90px; /* Evita desplazamientos mientras carga */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-container ins {
+  background: transparent;
+}
+
+/* En móviles, reducir márgenes */
+@media (max-width: 768px) {
+  .ad-container {
+    margin: 20px 10px;
+  }
+}
